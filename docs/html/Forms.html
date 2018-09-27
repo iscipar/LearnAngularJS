@@ -1,0 +1,57 @@
+<!doctype html>
+<html ng-app="myApp">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="../js/script.js"></script>
+</head>
+
+<body ng-controller="stageController">
+    <form name="myForm" novalidate ng-submit="submitForm();">
+        <h3>Formulario básico</h3>
+        <div class="form-section">
+            <p>Usuario:</p>
+            <input type="text" name="usuario1" ng-model="usuario1" required />
+            <input type="submit" ng-disabled="myForm.usuario1.$pristine || myForm.usuario1.$dirty && myForm.usuario1.$invalid" />
+            <div class="custom-error" ng-show="myForm.usuario1.$dirty && myForm.usuario1.$invalid">
+                Error: <span ng-show="myForm.usuario1.$error.required">El usuario es obligatorio.</span>
+            </div>
+            <p>Password:</p>
+            <input type="text" name="password1" ng-model="password1" ng-minlength=5 ng-maxlength=10 required />
+            <input type="submit" ng-disabled="myForm.password1.$pristine || myForm.password1.$dirty && myForm.password1.$invalid" />
+            <div class="custom-error" ng-show="myForm.password1.$dirty && myForm.password1.$invalid">
+                Error: <span ng-show="myForm.password1.$error.required">El password es obligatorio.</span>
+                <span ng-show="myForm.password1.$error.minlength">El password debe tener como mínimo 5 caracteres.</span>
+                <span ng-show="myForm.password1.$error.maxlength">El password debe tener como máximo 10 caracteres.</span>
+            </div>
+            <p>Edad:</p>
+            <input type="number" name="edad1" ng-model="edad1" required />
+            <input type="submit" ng-disabled="myForm.edad1.$pristine || myForm.edad1.$dirty && myForm.edad1.$invalid" />
+            <div class="custom-error" ng-show="myForm.edad1.$dirty && myForm.edad1.$invalid">
+                Error: <span ng-show="myForm.edad1.$error.required">La edad es obligatoria.</span>
+                <span ng-show="myForm.edad1.$error.number">Por favor, escriba un número entero.</span>
+            </div>
+            <p>Email:</p>
+            <input type="email" name="email1" ng-model="email1" required />
+            <input type="submit" ng-disabled="myForm.email1.$pristine || myForm.email1.$dirty && myForm.email1.$invalid" />
+            <div class="custom-error" ng-show="myForm.email1.$dirty && myForm.email1.$invalid">
+                Error: <span ng-show="myForm.email1.$error.required">El email es obligatorio.</span>
+                <span ng-show="myForm.email1.$error.email">Por favor, escribe una dirección de email correcta.</span>
+            </div>
+            <p>Blog:</p>
+            <input type="url" name="blog1" ng-model="blog1" />
+            <input type="submit" ng-disabled="myForm.blog1.$dirty && myForm.blog1.$invalid" />
+            <div class="custom-error" ng-show="myForm.blog1.$dirty && myForm.blog1.$invalid">
+                Error: <span ng-show="myForm.blog1.$error.url">Por favor, escriba una URL correcta.</span>
+            </div>
+            <p>Código:</p>
+            <input type="text" name="codigo1" ng-model="codigo1" lista-codigos="34F2,63D1,783A" />
+            <input type="submit" ng-disabled="myForm.codigo1.$pristine || myForm.codigo1.$dirty && myForm.codigo1.$invalid" />
+            <div class="custom-error" ng-show="myForm.codigo1.$dirty && myForm.codigo1.$invalid">
+                Error: <span ng-show="myForm.codigo1.$error.listaCodigos">Por favor, introduzca un código permitido.</span>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

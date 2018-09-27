@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng-app="myApp">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="../js/script.js"></script>
+</head>
+
+<body>
+    <div class="row" ng-controller="myController">
+        <h1 class="subheader">Filtro number</h1>
+        <ul class="panel callout radius">
+            <li ng-repeat="numero in numeros">
+                <p>{{ numero | number : 2 }}</p>
+            </li>
+        </ul>
+        <h1 class="subheader">Filtro capitalize</h1>
+        <ul class="panel callout radius">
+            <li ng-repeat="user in users | orderBy:'nombre'">
+                <p>Nombre: {{ user.nombre | capitalize }}</p>
+            </li>
+        </ul>
+        <h1 class="subheader">Filtro toUpper</h1>
+        <ul class="panel callout radius">
+            <li ng-repeat="user in users | orderBy:'nombre':true">
+                <p>Nombre: {{ user.nombre | toUpper }}</p>
+            </li>
+        </ul>
+        <h1 class="subheader">Filtros maxLength y capitalize</h1>
+        <ul class="panel callout radius">
+            <li ng-repeat="user in users">
+                <p>Nombre: {{ user.nombre | maxLength : 5 | capitalize }}</p>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

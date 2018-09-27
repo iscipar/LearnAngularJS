@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app>
+
+<head>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+</head>
+
+<body>
+    <p ng-class="{strike: deleted, bold: important, red: error}">Map Syntax Example</p>
+    <input type="checkbox" ng-model="deleted"> deleted
+    <br>
+    <input type="checkbox" ng-model="important"> important
+    <br>
+    <input type="checkbox" ng-model="error"> error
+    <hr>
+    <input type="button" value="set" ng-click="myStyle={color:'red'}">
+    <input type="button" value="clear" ng-click="myStyle={color:'black'}">
+    <br>
+    <span ng-style="myStyle">Sample Text</span>
+    <pre>myStyle={{myStyle}}</pre>
+</body>
+
+</html>
